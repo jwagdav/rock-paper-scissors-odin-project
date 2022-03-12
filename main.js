@@ -1,5 +1,5 @@
-let computerSelection = computerTurn();
-let playerSelection = PlayerChoice();
+let computerSelection;
+let playerSelection;
 
 function computerTurn() {
 
@@ -21,9 +21,14 @@ function PlayerChoice() {
     return playerSelection;
 }
 
-console.log(playerSelection, computerSelection);
+
 
 function PlayRound(playerSelection, computerSelection) {
+
+    playerSelection = PlayerChoice();
+    computerSelection = computerTurn();
+    console.log(playerSelection, computerSelection);
+
 
     if(playerSelection === "rock" && computerSelection === "paper") {
         console.log("loss");
@@ -37,7 +42,7 @@ function PlayRound(playerSelection, computerSelection) {
         console.log("win");
     }else if(playerSelection === "scissors" && computerSelection === "rock") {
         console.log("loss");
-    } else{
+    } else {
         console.log("tie");
     }
     
