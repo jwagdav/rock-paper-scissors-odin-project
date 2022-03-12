@@ -1,6 +1,9 @@
 let computerSelection;
 let playerSelection;
 
+let playerScore = 0;
+let computerScore = 0;
+
 function computerTurn() {
 
     let computerSelection = Math.ceil(Math.random() * 3);
@@ -32,22 +35,43 @@ function PlayRound(playerSelection, computerSelection) {
 
     if(playerSelection === "rock" && computerSelection === "paper") {
         console.log("loss");
+        computerScore++;
     }else if(playerSelection === "rock" && computerSelection === "scissors") {
         console.log("win");
+        playerScore++;
     }else if(playerSelection === "paper" && computerSelection === "scissors") {
         console.log("loss");
+        computerScore++;
     }else if(playerSelection === "paper" && computerSelection === "rock") {
         console.log("win");
+        playerScore++;
     }else if(playerSelection === "scissors" && computerSelection === "paper") {
         console.log("win");
+        playerScore++;
     }else if(playerSelection === "scissors" && computerSelection === "rock") {
         console.log("loss");
+        computerScore++;
     } else {
         console.log("tie");
     }
     
 }
 
-PlayRound();
+function Game(){
+    for(i = 0; i < 5; i++) {
+        PlayRound();
+        console.log(`The score is Player: ${playerScore} - Computer: ${computerScore}`);
+    }
+
+    if(playerScore > computerScore){
+        console.log("You Won!");
+    } else if (playerScore < computerScore){
+        console.log("You Lost");
+    } else {
+        console.log("Tie Game!");
+    }
+}
+
+Game();
 
 
