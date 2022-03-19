@@ -4,11 +4,41 @@ let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
+
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+const btnArray = [];
+
+function addToArray(...btn){
+    btnArray.push(btn);
+}
+
+addToArray(rockBtn, paperBtn, scissorsBtn);
+
+const btnList = document.querySelectorAll('button');
+
+rockBtn.addEventListener('onclick', () => {
+    playerSelection = "rock";
+    console.log("This event happened");
+    console.log(playerSelection);
+    PlayRound();
+});
+
+
+/*let computerSelection;
+let playerSelection;
+
+let playerScore = 0;
+let computerScore = 0;
+
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('onclick', (event) => {
-        const playerSelection = event.target.getAttribute('id');
+        const playerSelection = event.target.getAttribute('id').toString();
+        console.log(playerSelection);
         PlayRound();
     });
 });
@@ -66,7 +96,7 @@ function PlayRound(playerSelection, computerSelection) {
     
 }
 
-/*function Game(){
+function Game(){
     for(i = 0; i < 5; i++) {
         PlayRound();
         console.log(`The score is Player: ${playerScore} - Computer: ${computerScore}`);
