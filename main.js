@@ -4,6 +4,16 @@ let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
 
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('onclick', PlayRound());
+});
+
+buttons.forEach((button) => {
+    button.addEventListener('onclick', PlayerChoice());
+});
+
 function computerTurn() {
 
     let computerSelection = Math.ceil(Math.random() * 3);
@@ -19,8 +29,8 @@ function computerTurn() {
     return computerSelection;
 }
 
-function PlayerChoice() {
-    const playerSelection = window.prompt("Choose rock, paper, or scissors").toLowerCase();
+function PlayerChoice(e) {
+    const playerSelection = e.target.getAttribute('id');
     return playerSelection;
 }
 
@@ -57,7 +67,7 @@ function PlayRound(playerSelection, computerSelection) {
     
 }
 
-function Game(){
+/*function Game(){
     for(i = 0; i < 5; i++) {
         PlayRound();
         console.log(`The score is Player: ${playerScore} - Computer: ${computerScore}`);
@@ -73,5 +83,5 @@ function Game(){
 }
 
 Game();
-
+*/
 

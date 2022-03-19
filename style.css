@@ -1,0 +1,17 @@
+main{
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    margin-top: 150px;
+}
+
+.recent-round{
+    text-align: center;
+}
+
+.score{
+    text-align: center;
+    font-size: 3em;
+}
