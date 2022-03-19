@@ -7,11 +7,10 @@ let computerScore = 0;
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
-    button.addEventListener('onclick', PlayRound());
-});
-
-buttons.forEach((button) => {
-    button.addEventListener('onclick', PlayerChoice());
+    button.addEventListener('onclick', (event) => {
+        const playerSelection = event.target.getAttribute('id');
+        PlayRound();
+    });
 });
 
 function computerTurn() {
@@ -29,10 +28,10 @@ function computerTurn() {
     return computerSelection;
 }
 
-function PlayerChoice(e) {
-    const playerSelection = e.target.getAttribute('id');
-    return playerSelection;
-}
+//function PlayerChoice(e) {
+//    const playerSelection = e.target.getAttribute('id');
+//    return playerSelection;
+//}
 
 
 
